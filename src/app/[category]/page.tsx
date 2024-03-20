@@ -2,13 +2,13 @@ import { categories } from "@/constants/categories";
 import React from "react";
 
 export async function generateStaticParams() {
-  return categories.map((category) => ({ category: [category.type] }));
+  return categories.map((category) => ({ category: category.type }));
 }
 
 export default function QuestsPage({
-  params: { category },
+  params,
 }: {
-  params: { category?: string[] };
+  params: { category: string };
 }) {
   // const categoryItem = categories.find(({ type }) => type === category);
   return (

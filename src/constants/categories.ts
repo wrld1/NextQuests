@@ -4,13 +4,13 @@ export const categories: Category[] = [
   { type: "", label: "Всі квесты" },
   {
     type: "adventures",
-    label: "Пригоди",
+    label: "Пригодне",
   },
-  { type: "horror", label: "Хорори" },
-  { type: "mystic", label: "Містика" },
+  { type: "horror", label: "Страшне" },
+  { type: "mystic", label: "Містичне" },
   {
     type: "detective",
-    label: "Детектив",
+    label: "Детективне",
   },
   { type: "sci-fi", label: "Sci-fi" },
 ];
