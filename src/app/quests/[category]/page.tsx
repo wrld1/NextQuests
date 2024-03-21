@@ -5,7 +5,7 @@ export async function generateStaticParams() {
   return categories.map((category) => ({ category: category.type }));
 }
 
-export default function CategoryQuestsPage({
+export default async function CategoryQuestsPage({
   params,
 }: {
   params: { category: string };

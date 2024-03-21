@@ -6,12 +6,14 @@ export async function generateStaticParams() {
   return categories.map((category) => ({ category: category.type }));
 }
 
-export default function QuestsPage({
+export default async function QuestsPage({
   params,
 }: {
   params: { category: string };
 }) {
   // const categoryItem = categories.find(({ type }) => type === category);
-  // const quests = getQuests();
+  const quests = await getQuests();
+
+  console.log(quests);
   return <ul className="flex gap-2">Something</ul>;
 }

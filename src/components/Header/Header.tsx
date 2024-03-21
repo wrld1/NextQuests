@@ -10,7 +10,13 @@ function Header() {
       <div className="container justify-between mx-auto flex items-center gap-3">
         <div>
           <Link href="/">
-            <Image src="/icons/Logo.svg" width={134} height={50} alt="Logo" />
+            <Image
+              src="/icons/Logo.svg"
+              alt="Logo"
+              height={0}
+              width={134}
+              style={{ width: "134px", height: "auto" }}
+            />
           </Link>
         </div>
         <HeaderLinksList />
