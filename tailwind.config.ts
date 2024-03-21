@@ -11,6 +11,7 @@ const config: Config = {
       brandOrange: "#F2890F",
       white: "#ffffff",
       textWhite: "#E6E6E6",
+      backgroundPrimary: "#1C1C1C",
     },
     extend: {
       backgroundImage: {

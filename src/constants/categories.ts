@@ -1,16 +1,18 @@
 import { Category } from "@/types/Category";
 
 export const categories: Category[] = [
-  { type: "", label: "Всі квесты" },
+  { type: "", label: "Всі квесты", icon: "/icons/AllQuestsIcon.svg" },
   {
     type: "adventures",
     label: "Пригодне",
+    icon: "/icons/AdventuresIcon.svg",
   },
-  { type: "horror", label: "Страшне" },
-  { type: "mystic", label: "Містичне" },
+  { type: "horror", label: "Страшне", icon: "/icons/HorrorIcon.svg" },
+  { type: "mystic", label: "Містичне", icon: "/icons/MysticIcon.svg" },
   {
     type: "detective",
     label: "Детективне",
+    icon: "/icons/DetectiveIcon.svg",
   },
-  { type: "sci-fi", label: "Sci-fi" },
+  { type: "sci-fi", label: "Sci-fi", icon: "/icons/ScifiIcon.svg" },
 ];

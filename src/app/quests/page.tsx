@@ -1,3 +1,4 @@
+import { getQuests } from "@/actions/getQuests";
 import { categories } from "@/constants/categories";
 import React from "react";
 
@@ -11,11 +12,6 @@ export default function QuestsPage({
   params: { category: string };
 }) {
   // const categoryItem = categories.find(({ type }) => type === category);
-  return (
-    <ul className="flex gap-2">
-      {categories.map((category) => (
-        <li key={category.label}>{category.label}</li>
-      ))}
-    </ul>
-  );
+  // const quests = getQuests();
+  return <ul className="flex gap-2">Something</ul>;
 }

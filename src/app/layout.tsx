@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={raleway.className}>
-        <div className="min-h-full flex flex-col">
+        <div className="min-h-full flex flex-col bg-backgroundPrimary text-textWhite">
           <Header />
           <main className="flex-auto">{children}</main>
           <Footer />
