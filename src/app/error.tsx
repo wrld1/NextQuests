@@ -10,7 +10,9 @@ export default function Error({
   return (
     <div>
       <h2>Something went wrong!</h2>
-      <button onClick={() => reset()}>Try again</button>
+      <button onClick={() => reset()} className="bg-brandOrange p-2">
+        Try again
+      </button>
     </div>
   );
 }

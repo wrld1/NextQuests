@@ -1,8 +1,12 @@
 import { getQuestById } from "@/actions/getQuestById";
 import { Quest } from "@/types/Quest";
+import { notFound } from "next/navigation";
 
 async function QuestInfo({ questId }: { questId: string }) {
   const quest: Quest = await getQuestById(questId);
+  if (!quest) {
+    notFound();
+  }
 
   const { type, title, description, coverImg, level, peopleCount, duration } =
     quest;
