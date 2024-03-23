@@ -1,7 +1,7 @@
 import { Category } from "@/types/Category";
 
 export const categories: Category[] = [
-  { type: "", label: "Всі квесты", icon: "/icons/AllQuestsIcon.svg" },
+  { type: "", label: "Всі квести", icon: "/icons/AllQuestsIcon.svg" },
   {
     type: "adventures",
     label: "Пригодне",

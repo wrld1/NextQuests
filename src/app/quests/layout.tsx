@@ -1,4 +1,4 @@
-import CategoriesList from "./components/CategoriesList";
+import CategoriesList from "./_components/CategoriesList";
 
 export default function RootLayout({
   children,

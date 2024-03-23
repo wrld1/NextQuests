@@ -1,7 +1,7 @@
 "use server";
 
-export async function getQuests() {
-  const res = await fetch(`${process.env.API_BASE_URL}/quests`, {
+export async function getQuestById(id: string) {
+  const res = await fetch(`${process.env.API_BASE_URL}/quests/${id}`, {
     next: { revalidate: 3600 },
   });
 
