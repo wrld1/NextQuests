@@ -2,6 +2,7 @@ import { categories } from "@/constants/categories";
 import React, { Suspense } from "react";
 import QuestCardList from "../_components/QuestCardList";
 import { notFound } from "next/navigation";
+import SkeletonList from "../_components/SkeletonList";
 
 export async function generateStaticParams() {
   return categories.map((category) => ({ category: category.type }));
@@ -21,7 +22,7 @@ export default async function CategoryQuestsPage({
 
   return (
     <div className="flex gap-2">
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<SkeletonList />}>
         <QuestCardList category={category} />
       </Suspense>
     </div>

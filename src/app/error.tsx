@@ -8,7 +8,7 @@ export default function Error({
   reset: () => void;
 }) {
   return (
-    <div>
+    <div className="pt-[74px]">
       <h2>Something went wrong!</h2>
       <button onClick={() => reset()} className="bg-brandOrange p-2">
         Try again
