@@ -35,16 +35,16 @@ function QuestCard({
               height={14}
               alt="Person icon"
             />
-            {peopleCount[0]} - {peopleCount[1]} чел.
+            {peopleCount[0]} - {peopleCount[1]} люд.
           </span>
-          <span className="bg-gray-800 rounded-full text-textWhite font-medium text-sm mr-2 flex gap-2">
+          <span className="text-textWhite font-medium text-sm mr-2 flex gap-2">
             <Image
               src="/icons/DifficultyIcon.svg"
               width={14}
               height={14}
-              alt="Person icon"
+              alt="Difficulty icon"
             />
-            Level: {level}
+            {level}
           </span>
         </p>
       </div>

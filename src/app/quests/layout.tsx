@@ -8,7 +8,7 @@ export default function RootLayout({
   return (
     <div className="container mx-auto mt-12 pt-[74px]">
       <span className="text-brandOrange font-medium">квести у Києві</span>
-      <h2 className="text-6xl text-textWhite font-bold mt-1">
+      <h2 className="text-6xl text-textWhite font-extrabold mt-1">
         Оберіть тематику
       </h2>
       <div className="my-12">
