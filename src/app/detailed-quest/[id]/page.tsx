@@ -5,6 +5,8 @@ import { categories } from "@/constants/categories";
 import { getQuests } from "@/actions/getQuests";
 import { Quest } from "@/types/Quest";
 import { notFound } from "next/navigation";
+import Link from "next/link";
+import Modal from "../_components/Modal";
 
 type MetadataProps = {
   params: { id: string };
@@ -29,9 +31,12 @@ export async function generateStaticParams() {
 
 export default async function DetailedQuestPage({
   params: { id },
+  searchParams: { show },
 }: {
   params: { id: string };
+  searchParams: { show: string };
 }) {
+  const showModal = show;
   const quest: Quest = await getQuestById(id);
   if (!quest) {
     notFound();
@@ -49,10 +54,17 @@ export default async function DetailedQuestPage({
           rgba(0, 0, 0, 0.3)), url(/${coverImg})`,
       }}
     >
-      <div className="container mx-auto flex justify-end">
-        <div className="w-2/4">
+      <div className="container mx-auto flex justify-end ">
+        <div className="w-2/4 flex-col">
           <QuestInfo questId={id} />
+          <Link
+            href={`${id}?show=true`}
+            className="uppercase bg-brandOrange py-[22px] px-12 text-white text-lg font-semibold rounded-full ml-[30px] block text-center mt-10 w-[250px]"
+          >
+            Забронювати
+          </Link>
         </div>
+        {showModal && <Modal questId={id} />}
       </div>
     </div>
   );
