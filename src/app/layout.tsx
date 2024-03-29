@@ -25,7 +25,6 @@ export default function RootLayout({
       <body className={`relative ${raleway.className}`}>
         <div className="min-h-full flex flex-col bg-backgroundPrimary text-textWhite">
           <Header />
-
           <main className="flex-auto">
             <Toaster position="top-right" />
             {children}
