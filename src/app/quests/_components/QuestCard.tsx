@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { translations } from "@/constants/translations";
 
 type QuestCardProps = {
   id: number;
@@ -45,6 +46,7 @@ function QuestCard({
               alt="Difficulty icon"
             />
             {level}
+            {/* {translations.levels[level]} */}
           </span>
         </p>
       </div>

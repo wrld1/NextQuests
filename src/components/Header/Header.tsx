@@ -13,14 +13,19 @@ function Header() {
             <Image
               src="/icons/Logo.svg"
               alt="Logo"
+              width={0}
               height={0}
-              width={134}
-              style={{ width: "134px", height: "auto" }}
+              className="w-[134px] h-auto"
             />
           </Link>
         </div>
         <HeaderLinksList />
-        <div>telephon</div>
+        <Link
+          href="tel:099-145-02-67"
+          className="font-semibold text-sm text-textWhite"
+        >
+          099-145-02-67
+        </Link>
       </div>
     </header>
   );

@@ -3,6 +3,7 @@ import { Raleway } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Toaster } from "react-hot-toast";
 
 const raleway = Raleway({ subsets: ["cyrillic"] });
 
@@ -24,7 +25,11 @@ export default function RootLayout({
       <body className={`relative ${raleway.className}`}>
         <div className="min-h-full flex flex-col bg-backgroundPrimary text-textWhite">
           <Header />
-          <main className="flex-auto">{children}</main>
+
+          <main className="flex-auto">
+            <Toaster position="top-right" />
+            {children}
+          </main>
           <Footer />
         </div>
       </body>

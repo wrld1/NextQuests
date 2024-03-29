@@ -1,37 +1,57 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
 import { z } from "zod";
 
 const schema = z.object({
-  name: z.string().min(1),
-  peopleCount: z.number().positive(),
-  phone: z.string().min(1),
-  isLegal: z.boolean(),
+  name: z.string().min(1, "Name cannot be blank"),
+  phone: z.string().length(10, "Phone number cannot be longer than 10 digits"),
+  peopleCount: z.number().positive("Must be 1 or more"),
+  isLegal: z
+    .boolean()
+    .refine((value) => value === true, "Please agree to the terms."),
 });
 
-export async function createOrder(prevState: any, formData: FormData) {
+export async function createOrder(
+  questId: string,
+  prevState: any,
+  formData: FormData
+) {
   const parse = schema.safeParse({
     name: formData.get("name"),
-    peopleCount: formData.get("peopleCount"),
     phone: formData.get("phone"),
-    isLegal: formData.get("isLegal"),
+    peopleCount: Number(formData.get("peopleCount")),
+    isLegal: formData.get("isLegal") === "true",
   });
 
   if (!parse.success) {
+    console.log("errors from zod");
     return {
-      errors: parse.error.flatten().fieldErrors,
+      message: parse.error.issues,
     };
   }
 
   const data = parse.data;
+  console.log(data);
 
   try {
-    revalidatePath("/orders");
+    const res = await fetch(`${process.env.API_BASE_URL}/orders`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+
+    if (!res.ok) {
+      throw new Error(`HTTP error! status: ${res.status}`);
+    }
+
+    const order = await res.json();
+    console.log(order);
+
     return {
-      message: `Нове замовлення від ${data.name} на ${data.peopleCount} осіб прийнято!`,
+      message: `Заявка від ${data.name}  для ${data.peopleCount} осіб(-оби) прийнято`,
     };
-  } catch (e) {
-    throw new Error("Failed to create order");
+  } catch (e: any) {
+    console.error(e);
+    return { message: "Не вийшло створити заявку" };
   }
 }

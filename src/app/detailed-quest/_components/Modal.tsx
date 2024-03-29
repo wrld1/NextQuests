@@ -1,22 +1,28 @@
 import Link from "next/link";
+import { X } from "react-feather";
 
-function Modal({ questId }: { questId: string }) {
+type ModalProps = {
+  questId: string;
+  children: React.ReactNode;
+};
+
+function Modal({ questId, children }: ModalProps) {
   return (
-    <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full flex items-center justify-center">
-      <div className="p-8 border w-96 shadow-lg rounded-md bg-white">
+    <div className="fixed z-50 top-0 flex justify-center items-center min-w-full min-h-full bg-[#3D3333] bg-opacity-80">
+      <div className="bg-[#141414] p-8 shadow-lg rounded-md z-50 ">
         <div className="text-center">
-          <h3 className="text-2xl font-bold text-gray-900">Modal Title</h3>
-          <div className="mt-2 px-7 py-3">
-            <p className="text-lg text-gray-500">Modal Body</p>
-          </div>
-          <div className="flex justify-center mt-4">
+          <div className="flex justify-between">
+            <h3 className="text-3xl font-extrabold text-textWhite mb-10">
+              Залишити заявку
+            </h3>
             <Link
               href={`${questId}`}
-              className="px-4 py-2 bg-blue-500 text-white text-base font-medium rounded-md shadow-sm hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-300"
+              className="text-textWhite text-base font-medium shadow-sm"
             >
-              Close
+              <X />
             </Link>
           </div>
+          <div className="">{children}</div>
         </div>
       </div>
     </div>
