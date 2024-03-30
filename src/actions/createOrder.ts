@@ -1,5 +1,6 @@
 "use server";
 
+import toast from "react-hot-toast";
 import { z } from "zod";
 
 const schema = z.object({
@@ -11,11 +12,7 @@ const schema = z.object({
     .refine((value) => value === true, "Please agree to the terms."),
 });
 
-export async function createOrder(
-  questId: string,
-  prevState: any,
-  formData: FormData
-) {
+export async function createOrder(prevState: any, formData: FormData) {
   const parse = schema.safeParse({
     name: formData.get("name"),
     phone: formData.get("phone"),
@@ -24,14 +21,12 @@ export async function createOrder(
   });
 
   if (!parse.success) {
-    console.log("errors from zod");
     return {
       message: parse.error.issues,
     };
   }
 
   const data = parse.data;
-  console.log(data);
 
   try {
     const res = await fetch(`${process.env.API_BASE_URL}/orders`, {
@@ -40,12 +35,7 @@ export async function createOrder(
       body: JSON.stringify(data),
     });
 
-    if (!res.ok) {
-      throw new Error(`HTTP error! status: ${res.status}`);
-    }
-
     const order = await res.json();
-    console.log(order);
 
     return {
       message: `Заявка від ${data.name}  для ${data.peopleCount} осіб(-оби) прийнято`,

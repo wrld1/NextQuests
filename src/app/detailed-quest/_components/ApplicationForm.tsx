@@ -10,10 +10,9 @@ import { ErrorMessages } from "./ErrorMessages";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 
-function ApplicationForm({ questId }: { questId: string }) {
+function ApplicationForm() {
   const [checked, setChecked] = useState(true);
-  const createOrderWithId = createOrder.bind(null, questId);
-  const [state, formAction] = useFormState(createOrderWithId, { message: "" });
+  const [state, formAction] = useFormState(createOrder, { message: "" });
 
   const router = useRouter();
 
@@ -22,13 +21,13 @@ function ApplicationForm({ questId }: { questId: string }) {
   const peopleCountErrors = findErrors("peopleCount", state.message);
   const isLegalErrors = findErrors("isLegal", state.message);
 
-  function handleSubmit() {
-    toast.success("Заявка успішно створена");
-    router.back();
-  }
+  // function handleSubmit() {
+  //   toast.success("Заявка успішно створена");
+  //   router.back();
+  // }
 
   return (
-    <form action={formAction} onSubmit={handleSubmit}>
+    <form action={formAction}>
       <div className="flex flex-col gap-8 mb-14">
         <div>
           <ApplicationFormInput

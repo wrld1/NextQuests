@@ -1,7 +1,7 @@
 import QuestInfo from "../_components/QuestInfo";
 import { Metadata } from "next";
 import { getQuestById } from "@/actions/getQuestById";
-import { categories } from "@/constants/categories";
+
 import { getQuests } from "@/actions/getQuests";
 import { Quest } from "@/types/Quest";
 import { notFound } from "next/navigation";
@@ -69,7 +69,7 @@ export default async function DetailedQuestPage({
       </div>
       {showModal && (
         <Modal questId={id}>
-          <ApplicationForm questId={id} />
+          <ApplicationForm />
         </Modal>
       )}
     </>

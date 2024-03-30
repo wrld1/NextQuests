@@ -45,8 +45,7 @@ function QuestCard({
               height={14}
               alt="Difficulty icon"
             />
-            {level}
-            {/* {translations.levels[level]} */}
+            {translations.levels[level]}
           </span>
         </p>
       </div>

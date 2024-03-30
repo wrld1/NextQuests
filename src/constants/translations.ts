@@ -1,9 +1,8 @@
-export const translations: {
-  types: { [key: string]: string }; // Use an index signature for unknown types
-  levels: LevelTranslations;
-} = {
+import { Translations } from "@/types/Translations";
+
+export const translations: Translations = {
   types: {
-    horror: "жах",
+    horror: "жахи",
     mystic: "містика",
     detective: "детектив",
     adventures: "пригоди",
@@ -15,9 +14,3 @@ export const translations: {
     hard: "складна",
   },
 };
-
-interface LevelTranslations {
-  easy: string;
-  medium: string;
-  hard: string;
-}

@@ -1,6 +1,7 @@
 import { Quest } from "@/types/Quest";
 import { notFound } from "next/navigation";
 import Image from "next/image";
+import { translations } from "@/constants/translations";
 
 async function QuestInfo({ quest }: { quest: Quest }) {
   if (!quest) {
@@ -11,7 +12,9 @@ async function QuestInfo({ quest }: { quest: Quest }) {
 
   return (
     <div>
-      <p className="text-brandOrange font-medium text-sm">{type}</p>
+      <p className="text-brandOrange font-medium text-sm">
+        {translations.types[type]}
+      </p>
       <h2 className="mt-2 mb-8 font-black text-white text-8xl uppercase">
         {title}
       </h2>
@@ -45,7 +48,7 @@ async function QuestInfo({ quest }: { quest: Quest }) {
               className="w-[14px] h-auto"
               alt="Difficulty icon"
             />
-            {level}
+            {translations.levels[level]}
           </span>
         </div>
         <p className="font-medium text-base text-textWhite">{description}</p>

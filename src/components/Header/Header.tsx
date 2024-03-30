@@ -6,7 +6,7 @@ import Link from "next/link";
 
 function Header() {
   return (
-    <header className="pt-6 flex bg-transparent absolute w-full">
+    <header className="pt-6 flex bg-transparent absolute w-full z-20">
       <div className="container justify-between mx-auto flex items-center gap-3">
         <div>
           <Link href="/">
