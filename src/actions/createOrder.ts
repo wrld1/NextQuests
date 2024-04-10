@@ -1,6 +1,5 @@
 "use server";
 
-import toast from "react-hot-toast";
 import { z } from "zod";
 
 const schema = z.object({
@@ -17,7 +16,7 @@ export async function createOrder(prevState: any, formData: FormData) {
     name: formData.get("name"),
     phone: formData.get("phone"),
     peopleCount: Number(formData.get("peopleCount")),
-    isLegal: formData.get("isLegal") === "true",
+    isLegal: formData.get("isLegal") === "on",
   });
 
   if (!parse.success) {

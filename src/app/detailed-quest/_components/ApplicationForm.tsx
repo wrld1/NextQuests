@@ -1,5 +1,6 @@
 "use client";
 
+// @ts-ignore
 import { useFormState } from "react-dom";
 import { createOrder } from "@/actions/createOrder";
 import ApplicationFormInput from "./ApplicationFormInput";
