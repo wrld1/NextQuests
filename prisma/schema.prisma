@@ -24,3 +24,11 @@ model Quest {
   peopleCount   Int[]
   duration      Int
 }
+
+model Order {
+  id          Int      @id @default(autoincrement())
+  name        String
+  peopleCount Int
+  phone       String
+  isLegal     Boolean
+}
