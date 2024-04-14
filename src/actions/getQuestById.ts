@@ -10,4 +10,12 @@ export async function getQuestById(id: string) {
   }
 
   return res.json();
+
+  // const quest = await db.quest.findUnique({
+  //   where: {
+  //     id: parseInt(id),
+  //   },
+  // });
+
+  // return quest;
 }
