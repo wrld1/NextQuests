@@ -1,8 +1,9 @@
 services:
   postgres:
     image: postgres:15-alpine
+    container_name: postgres
     ports:
-      - 5433:5432 # enables connecting locally via psql
+      - 5432:5432 # enables connecting locally via psql
     environment:
       POSTGRES_DB: webapp_dev
       POSTGRES_HOST_AUTH_METHOD: trust
