@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.19",
     "@prisma/client": "^5.12.1",
     "@react-google-maps/api": "^2.19.3",
     "class-variance-authority": "^0.7.0",

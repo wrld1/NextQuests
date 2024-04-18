@@ -1,6 +1,6 @@
 import QuestCard from "./QuestCard";
 import { Quest } from "@/types/Quest";
-import { getQuests } from "@/actions/getQuests";
+import { getQuests } from "@/app/actions/getQuests";
 
 type QuestCardListProps = {
   category?: string;

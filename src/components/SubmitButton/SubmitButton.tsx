@@ -1,6 +1,6 @@
 import { useFormStatus } from "react-dom";
 
-function SubmitButton() {
+function SubmitButton({ placeholder }: { placeholder: string }) {
   const { pending } = useFormStatus();
 
   return (
@@ -9,7 +9,7 @@ function SubmitButton() {
       aria-disabled={pending}
       className="uppercase bg-brandOrange py-4 px-8 text-white text-sm font-extrabold rounded-full block text-center mx-auto mb-6 disabled:bg-[#B8B8B8] disabled:cursor-not-allowed"
     >
-      Відправити заявку
+      {pending ? "Відправлення..." : placeholder}
     </button>
   );
 }

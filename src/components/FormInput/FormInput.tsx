@@ -1,4 +1,4 @@
-type ApplicationFormInputProps = {
+type FormInputProps = {
   inputId: string;
   inputLabel: string;
   type: string;
@@ -6,13 +6,13 @@ type ApplicationFormInputProps = {
   placeholder: string;
 };
 
-function ApplicationFormInput({
+function FormInput({
   inputId,
   inputLabel,
   required,
   type,
   placeholder,
-}: ApplicationFormInputProps) {
+}: FormInputProps) {
   return (
     <div className="flex flex-col gap-3 items-start">
       <label htmlFor={inputId}>{inputLabel}</label>
@@ -28,4 +28,4 @@ function ApplicationFormInput({
   );
 }
 
-export default ApplicationFormInput;
+export default FormInput;

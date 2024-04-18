@@ -1,4 +1,3 @@
-import { getQuests } from "@/actions/getQuests";
 import { categories } from "@/constants/categories";
 import React, { Suspense } from "react";
 import QuestCardList from "./_components/QuestCardList";

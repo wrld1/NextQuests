@@ -1,8 +1,8 @@
 import QuestInfo from "../_components/QuestInfo";
 import { Metadata } from "next";
-import { getQuestById } from "@/actions/getQuestById";
+import { getQuestById } from "@/app/actions/getQuestById";
 
-import { getQuests } from "@/actions/getQuests";
+import { getQuests } from "@/app/actions/getQuests";
 import { Quest } from "@/types/Quest";
 import { notFound } from "next/navigation";
 import Link from "next/link";

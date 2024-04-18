@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import HeaderLinksList from "./HeaderLinksList";
 import Link from "next/link";
+import AuthDropdown from "./AuthDropdown";
 
 function Header() {
   return (
@@ -20,12 +21,15 @@ function Header() {
           </Link>
         </div>
         <HeaderLinksList />
-        <Link
-          href="tel:099-145-02-67"
-          className="font-semibold text-sm text-textWhite"
-        >
-          099-145-02-67
-        </Link>
+        <div className="flex items-center gap-8">
+          <AuthDropdown />
+          <Link
+            href="tel:099-145-02-67"
+            className="font-semibold text-sm text-textWhite"
+          >
+            099-145-02-67
+          </Link>
+        </div>
       </div>
     </header>
   );

@@ -16,11 +16,12 @@ export async function createOrder(prevState: any, formData: FormData) {
     name: formData.get("name"),
     phone: formData.get("phone"),
     peopleCount: Number(formData.get("peopleCount")),
-    isLegal: formData.get("isLegal") === "on",
+    isLegal: formData.get("isLegal") === "true",
   });
 
   if (!parse.success) {
     return {
+      success: false,
       message: parse.error.issues,
     };
   }
@@ -28,7 +29,7 @@ export async function createOrder(prevState: any, formData: FormData) {
   const data = parse.data;
 
   try {
-    const res = await fetch(`${process.env.API_BASE_URL}/orders`, {
+    const res = await fetch(`${process.env.API_BASE_URL}/api/create-order`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
@@ -37,10 +38,11 @@ export async function createOrder(prevState: any, formData: FormData) {
     const order = await res.json();
 
     return {
+      success: true,
       message: `Заявка від ${data.name}  для ${data.peopleCount} осіб(-оби) прийнято`,
     };
   } catch (e: any) {
     console.error(e);
-    return { message: "Не вийшло створити заявку" };
+    return { success: false, message: "Не вийшло створити заявку" };
   }
 }

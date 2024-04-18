@@ -2,18 +2,23 @@
 
 // @ts-ignore
 import { useFormState } from "react-dom";
-import { createOrder } from "@/actions/createOrder";
-import ApplicationFormInput from "./ApplicationFormInput";
-import SubmitButton from "./SubmitButton";
+import { createOrder } from "@/app/actions/createOrder";
+import FormInput from "../../../components/FormInput";
+import SubmitButton from "../../../components/SubmitButton";
 import { useState } from "react";
 import { findErrors } from "@/lib/findErrors";
-import { ErrorMessages } from "./ErrorMessages";
+import ErrorMessages from "@/components/ErrorMessages";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import { ZodIssue } from "zod";
 
 function ApplicationForm() {
+  const initialState = {
+    success: false,
+    message: "",
+  };
   const [checked, setChecked] = useState(true);
-  const [state, formAction] = useFormState(createOrder, { message: "" });
+  const [state, formAction] = useFormState(createOrder, initialState);
 
   const router = useRouter();
 
@@ -22,16 +27,20 @@ function ApplicationForm() {
   const peopleCountErrors = findErrors("peopleCount", state.message);
   const isLegalErrors = findErrors("isLegal", state.message);
 
-  // function handleSubmit() {
-  //   toast.success("Заявка успішно створена");
-  //   router.back();
-  // }
+  function handleSuccess(message: string | ZodIssue[]) {
+    if (typeof message === "string") {
+      toast.success(message);
+      router.back();
+    }
+    return;
+  }
 
   return (
     <form action={formAction}>
+      {state?.success && <>{handleSuccess(state.message)}</>}
       <div className="flex flex-col gap-8 mb-14">
         <div>
-          <ApplicationFormInput
+          <FormInput
             inputId={"name"}
             inputLabel={"Ваше ім'я"}
             type={"text"}
@@ -41,7 +50,7 @@ function ApplicationForm() {
           <ErrorMessages errors={nameErrors} />
         </div>
         <div>
-          <ApplicationFormInput
+          <FormInput
             inputId={"phone"}
             inputLabel={"Контактний телефон"}
             type={"tel"}
@@ -51,7 +60,7 @@ function ApplicationForm() {
           <ErrorMessages errors={phoneErrors} />
         </div>
         <div>
-          <ApplicationFormInput
+          <FormInput
             inputId={"peopleCount"}
             inputLabel={"Кількість учасників"}
             type={"text"}
@@ -61,7 +70,7 @@ function ApplicationForm() {
           <ErrorMessages errors={peopleCountErrors} />
         </div>
       </div>
-      <SubmitButton />
+      <SubmitButton placeholder="Відправити заявку" />
       <p aria-live="polite" className="sr-only" role="status">
         {state.message === "string" ? state.message : ""}
       </p>

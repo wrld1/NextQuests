@@ -16,8 +16,10 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
+  auth,
   children,
 }: Readonly<{
+  auth: React.ReactNode;
   children: React.ReactNode;
 }>) {
   return (
@@ -27,6 +29,7 @@ export default function RootLayout({
           <Header />
           <main className="flex-auto">
             <Toaster position="top-right" />
+            {auth}
             {children}
           </main>
           <Footer />
