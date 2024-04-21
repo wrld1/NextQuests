@@ -1,6 +1,8 @@
+import { verifySession } from "@/lib/api/session";
 import Link from "next/link";
 
 export default async function Home() {
+  const session = await verifySession();
   return (
     <>
       <section className="flex container mx-auto gap-12 py-[120px] px-60 justify-center">
@@ -10,6 +12,7 @@ export default async function Home() {
           <Link href="/quests" className="bg-brandOrange p-2 text-center">
             До квестів
           </Link>
+          <pre>{JSON.stringify(session, null, 2)}</pre>
         </div>
       </section>
     </>

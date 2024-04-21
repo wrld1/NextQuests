@@ -1,24 +1,20 @@
 "use client";
 
-// @ts-ignore
 import { useFormState } from "react-dom";
-import { createOrder } from "@/app/actions/createOrder";
-import FormInput from "../../../components/FormInput";
-import SubmitButton from "../../../components/SubmitButton";
+import { createOrder } from "@/actions/createOrder";
 import { useState } from "react";
 import { findErrors } from "@/lib/findErrors";
-import ErrorMessages from "@/components/ErrorMessages";
+import ErrorMessages from "@/components/ui/ErrorMessages";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
-import { ZodIssue } from "zod";
+import { handleFormError } from "@/lib/handleFormError";
+import { formInitialState } from "@/constants/formInitialState";
+import SubmitButton from "@/components/ui/SubmitButton";
+import FormInput from "@/components/ui/FormInput";
 
-function ApplicationForm() {
-  const initialState = {
-    success: false,
-    message: "",
-  };
+function CreateOrderForm() {
   const [checked, setChecked] = useState(true);
-  const [state, formAction] = useFormState(createOrder, initialState);
+  const [state, formAction] = useFormState(createOrder, formInitialState);
 
   const router = useRouter();
 
@@ -27,7 +23,7 @@ function ApplicationForm() {
   const peopleCountErrors = findErrors("peopleCount", state.message);
   const isLegalErrors = findErrors("isLegal", state.message);
 
-  function handleSuccess(message: string | ZodIssue[]) {
+  function handleSuccess(message: string) {
     if (typeof message === "string") {
       toast.success(message);
       router.back();
@@ -37,7 +33,8 @@ function ApplicationForm() {
 
   return (
     <form action={formAction}>
-      {state?.success && <>{handleSuccess(state.message)}</>}
+      {state?.success && <>{handleSuccess(state.message as string)}</>}
+      {state.success === false && <>{handleFormError(state.message)}</>}
       <div className="flex flex-col gap-8 mb-14">
         <div>
           <FormInput
@@ -95,4 +92,4 @@ function ApplicationForm() {
   );
 }
 
-export default ApplicationForm;
+export default CreateOrderForm;

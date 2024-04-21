@@ -1,39 +1,39 @@
 "use client";
 
 import { useFormState } from "react-dom";
-import { createOrder } from "@/app/actions/createOrder";
-import FormInput from "@/components/FormInput";
-import SubmitButton from "@/components/SubmitButton";
+import FormInput from "@/components/ui/FormInput";
+import SubmitButton from "@/components/ui/SubmitButton";
 import { findErrors } from "@/lib/findErrors";
-import ErrorMessages from "@/components/ErrorMessages";
+import ErrorMessages from "@/components/ui/ErrorMessages";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
-import { ZodIssue } from "zod";
+import { handleFormError } from "@/lib/handleFormError";
+import { signIn } from "@/actions/signIn";
+import { formInitialState } from "@/constants/formInitialState";
+import { useRef } from "react";
 
-function RegisterForm() {
-  const initialState = {
-    success: false,
-    message: "",
-  };
-
-  const [state, formAction] = useFormState(createOrder, initialState);
+function SignInForm() {
+  const [state, formAction] = useFormState(signIn, formInitialState);
+  const toastShownRef = useRef(false);
 
   const router = useRouter();
 
   const emailErrors = findErrors("email", state.message);
   const passwordErrors = findErrors("password", state.message);
 
-  // function handleSuccess(message: string | ZodIssue[]) {
-  //   if (typeof message === "string") {
-  //     toast.success(message);
-  //     router.back();
-  //   }
-  //   return;
-  // }
+  function handleSuccess(message: string) {
+    if (!toastShownRef.current) {
+      toast.success(message);
+      toastShownRef.current = true;
+    }
+    router.push("/");
+  }
 
   return (
     <form action={formAction}>
-      {/* {state?.success && <>{handleSuccess(state.message)}</>} */}
+      {state?.success && <>{handleSuccess(state.message)}</>}
+      {state.success === false && <>{handleFormError(state.message)}</>}
+      <h3 className="font-bold text-xl mb-2 text-center">Увійти в акаунт</h3>
       <div className="flex flex-col gap-8 mb-14">
         <div>
           <FormInput
@@ -56,7 +56,7 @@ function RegisterForm() {
           <ErrorMessages errors={passwordErrors} />
         </div>
       </div>
-      <SubmitButton placeholder="Зареєструватись" />
+      <SubmitButton placeholder="Увійти" />
       <p aria-live="polite" className="sr-only" role="status">
         {state.message === "string" ? state.message : ""}
       </p>
@@ -64,4 +64,4 @@ function RegisterForm() {
   );
 }
 
-export default RegisterForm;
+export default SignInForm;

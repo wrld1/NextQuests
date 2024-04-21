@@ -7,6 +7,10 @@ export async function GET(
 ) {
   const { id } = params;
 
+  if (isNaN(+id)) {
+    return NextResponse.error();
+  }
+
   const quest = await db.quest.findUnique({
     where: {
       id: +id,

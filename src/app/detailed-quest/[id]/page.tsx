@@ -1,13 +1,12 @@
 import QuestInfo from "../_components/QuestInfo";
 import { Metadata } from "next";
-import { getQuestById } from "@/app/actions/getQuestById";
-
-import { getQuests } from "@/app/actions/getQuests";
+import { getQuestById } from "@/actions/getQuestById";
+import { getQuests } from "@/actions/getQuests";
 import { Quest } from "@/types/Quest";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Modal from "../_components/Modal";
-import ApplicationForm from "../_components/ApplicationForm";
+import CreateOrderForm from "@/components/forms/CreateOrderForm";
 
 type MetadataProps = {
   params: { id: string };
@@ -69,7 +68,7 @@ export default async function DetailedQuestPage({
       </div>
       {showModal && (
         <Modal questId={id}>
-          <ApplicationForm />
+          <CreateOrderForm />
         </Modal>
       )}
     </>

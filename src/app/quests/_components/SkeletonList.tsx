@@ -1,4 +1,4 @@
-import QuestCardSkeleton from "@/components/Skeletons/QuestCardSkeleton/QuestCardSkeleton";
+import QuestCardSkeleton from "@/components/ui/Skeletons/QuestCardSkeleton/QuestCardSkeleton";
 
 async function SkeletonList() {
   return (

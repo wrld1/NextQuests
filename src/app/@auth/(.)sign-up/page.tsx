@@ -1,10 +1,10 @@
-import AuthModal from "@/components/AuthModal";
-import RegisterForm from "@/components/RegisterForm";
+import AuthModal from "@/components/ui/AuthModal";
+import SignUpForm from "@/components/forms/SignUpForm";
 
 export default function Page() {
   return (
     <AuthModal>
-      <RegisterForm />
+      <SignUpForm />
     </AuthModal>
   );
 }

@@ -11,7 +11,7 @@ export async function POST(request: Request) {
 
   if (!user) {
     return NextResponse.json(
-      { message: "Invalid email" },
+      { message: "Невірний email" },
       {
         status: 401,
       }
@@ -22,17 +22,14 @@ export async function POST(request: Request) {
 
   if (!passwordMatch) {
     return NextResponse.json(
-      { message: "Invalid password" },
+      { message: "Невірний пароль" },
       {
         status: 401,
       }
     );
   }
 
-  return NextResponse.json(
-    { message: "Login successful" },
-    {
-      status: 200,
-    }
-  );
+  return NextResponse.json(user, {
+    status: 200,
+  });
 }

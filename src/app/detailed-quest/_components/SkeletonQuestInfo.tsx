@@ -1,5 +1,5 @@
-import SkeletonHeader from "@/components/Skeletons/SkeletonHeader/SkeletonHeader";
-import SkeletonRow from "@/components/Skeletons/SkeletonRow/SkeletonRow";
+import SkeletonHeader from "@/components/ui/Skeletons/SkeletonHeader/SkeletonHeader";
+import SkeletonRow from "@/components/ui/Skeletons/SkeletonRow/SkeletonRow";
 
 async function SkeletonQuestInfo() {
   return (

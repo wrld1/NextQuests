@@ -44,6 +44,8 @@ module.exports = {
       white: "#ffffff",
       textWhite: "#E6E6E6",
       backgroundPrimary: "#1C1C1C",
+      formsBackground: "#141414",
+      darkTransparentBackground: "#3D3333",
     },
     extend: {
       backgroundImage: {

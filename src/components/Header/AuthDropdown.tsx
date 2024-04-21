@@ -3,11 +3,11 @@
 import { Menu, Transition } from "@headlessui/react";
 import Link from "next/link";
 import { Fragment } from "react";
-import { ChevronDown, LogIn, LogOut, UserPlus } from "react-feather";
+import { ChevronDown, LogIn, UserPlus } from "react-feather";
 
 export default function AuthDropdown() {
   return (
-    <div className="w-56 text-right">
+    <div className=" text-right">
       <Menu as="div" className="relative inline-block text-left">
         <div>
           <Menu.Button className="inline-flex w-full items-center justify-center rounded-md bg-gray-300/20 px-4 py-2 text-md font-medium text-white hover:bg-black/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75">
@@ -34,56 +34,21 @@ export default function AuthDropdown() {
                   <Link
                     href="/sign-in"
                     className={`${
-                      active ? "bg-violet-500 text-white" : "text-gray-900"
+                      active ? "bg-brandOrange text-white" : "text-gray-900"
                     } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                   >
                     {active ? (
-                      <LogIn
-                        className="mr-2 h-5 w-5"
-                        aria-hidden="true"
-                        fill="#8B5CF6"
-                        stroke="#C4B5FD"
-                        strokeWidth="2"
-                      />
+                      <LogIn className="mr-2 h-5 w-5" aria-hidden="true" />
                     ) : (
                       <LogIn
                         className="mr-2 h-5 w-5"
                         aria-hidden="true"
-                        fill="#EDE9FE"
-                        stroke="#A78BFA"
-                        strokeWidth="2"
+                        // fill="#EDE9FE"
+                        // stroke="#A78BFA"
+                        // strokeWidth="2"
                       />
                     )}
                     Авторизація
-                  </Link>
-                )}
-              </Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <Link
-                    href="/sign-up"
-                    className={`${
-                      active ? "bg-violet-500 text-white" : "text-gray-900"
-                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                  >
-                    {active ? (
-                      <UserPlus
-                        className="mr-2 h-5 w-5"
-                        aria-hidden="true"
-                        fill="#8B5CF6"
-                        stroke="#C4B5FD"
-                        strokeWidth="2"
-                      />
-                    ) : (
-                      <UserPlus
-                        className="mr-2 h-5 w-5"
-                        aria-hidden="true"
-                        fill="#EDE9FE"
-                        stroke="#A78BFA"
-                        strokeWidth="2"
-                      />
-                    )}
-                    Реєстрація
                   </Link>
                 )}
               </Menu.Item>
@@ -91,30 +56,19 @@ export default function AuthDropdown() {
             <div className="px-1 py-1">
               <Menu.Item>
                 {({ active }) => (
-                  <button
+                  <Link
+                    href="/sign-up"
                     className={`${
-                      active ? "bg-violet-500 text-white" : "text-gray-900"
+                      active ? "bg-brandOrange text-white" : "text-gray-900"
                     } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                   >
                     {active ? (
-                      <LogOut
-                        className="mr-2 h-5 w-5"
-                        aria-hidden="true"
-                        fill="#8B5CF6"
-                        stroke="#C4B5FD"
-                        strokeWidth="2"
-                      />
+                      <UserPlus className="mr-2 h-5 w-5" aria-hidden="true" />
                     ) : (
-                      <LogOut
-                        className="mr-2 h-5 w-5"
-                        aria-hidden="true"
-                        fill="#EDE9FE"
-                        stroke="#A78BFA"
-                        strokeWidth="2"
-                      />
+                      <UserPlus className="mr-2 h-5 w-5" aria-hidden="true" />
                     )}
-                    Вийти
-                  </button>
+                    Реєстрація
+                  </Link>
                 )}
               </Menu.Item>
             </div>

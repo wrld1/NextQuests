@@ -21,7 +21,7 @@ function FormInput({
         id={inputId}
         name={inputId}
         required={required}
-        className="py-4 px-6 bg-[#141414] border border-[#E6E6E6] w-[400px]"
+        className="py-4 px-6 bg-formsBackground border border-[#E6E6E6] w-[400px]"
         placeholder={placeholder}
       />
     </div>

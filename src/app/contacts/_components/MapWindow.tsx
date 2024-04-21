@@ -2,7 +2,7 @@
 
 import React from "react";
 import { GoogleMap, Marker, useLoadScript } from "@react-google-maps/api";
-import MapSkeleton from "@/components/Skeletons/MapSkeleton/MapSkeleton";
+import MapSkeleton from "@/components/ui//Skeletons/MapSkeleton/MapSkeleton";
 
 const containerStyle = {
   width: "650px",

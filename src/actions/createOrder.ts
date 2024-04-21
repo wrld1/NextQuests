@@ -35,14 +35,16 @@ export async function createOrder(prevState: any, formData: FormData) {
       body: JSON.stringify(data),
     });
 
-    const order = await res.json();
+    if (!res.ok) {
+      const errorData = await res.json();
+      throw new Error(errorData.message);
+    }
 
     return {
       success: true,
       message: `Заявка від ${data.name}  для ${data.peopleCount} осіб(-оби) прийнято`,
     };
   } catch (e: any) {
-    console.error(e);
-    return { success: false, message: "Не вийшло створити заявку" };
+    return { success: false, message: e.message };
   }
 }
