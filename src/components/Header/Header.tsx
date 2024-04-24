@@ -9,7 +9,6 @@ import LogoutButton from "./LogoutButton";
 
 async function Header() {
   const session = await verifySession();
-  console.log(session);
 
   return (
     <header className="pt-6 flex bg-transparent absolute w-full z-20">
@@ -27,14 +26,13 @@ async function Header() {
         </div>
         <HeaderLinksList />
         <div className="flex items-center gap-8">
-          {!session ? <AuthDropdown /> : <LogoutButton />}
-          {/* {sessionStatus} */}
           <Link
             href="tel:099-145-02-67"
             className="font-semibold text-sm text-textWhite"
           >
             099-145-02-67
           </Link>
+          {!session ? <AuthDropdown /> : <LogoutButton />}
         </div>
       </div>
     </header>

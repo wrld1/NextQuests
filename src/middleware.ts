@@ -10,8 +10,9 @@ export async function middleware(request: NextRequest) {
   const isProtectedRoute = protectedRoutes.includes(path);
   const isExcludedRoute = excludedRoutes.includes(path);
 
-  await updateSession(request);
   const session = await verifySession();
+
+  const updatedSession = await updateSession(request);
 
   if (isProtectedRoute && !session) {
     return NextResponse.redirect(new URL("/sign-in", request.nextUrl));
