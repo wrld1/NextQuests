@@ -1,6 +1,5 @@
 import { navLinks } from "@/constants/navLinks";
 import React from "react";
-import Link from "next/link";
 import HeaderLink from "./HeaderLink";
 
 function HeaderLinksList() {

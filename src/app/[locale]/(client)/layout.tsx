@@ -13,12 +13,14 @@ export const metadata: Metadata = {
 
 export default function ClientLayout({
   children,
+  params: { locale },
 }: Readonly<{
   children: React.ReactNode;
+  params: { locale: string };
 }>) {
   return (
     <>
-      <Header />
+      <Header locale={locale} />
       <main className="flex-auto">{children}</main>
       <Footer />
     </>

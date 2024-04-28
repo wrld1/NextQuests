@@ -4,14 +4,17 @@ import { Menu, Transition } from "@headlessui/react";
 import Link from "next/link";
 import { Fragment } from "react";
 import { ChevronDown, LogIn, UserPlus } from "react-feather";
+import { useTranslation } from "react-i18next";
 
 export default function AuthDropdown() {
+  const { t } = useTranslation();
+
   return (
-    <div className=" text-right">
+    <div className="text-right">
       <Menu as="div" className="relative inline-block text-left">
         <div>
           <Menu.Button className="inline-flex w-full items-center justify-center rounded-md bg-gray-300/20 px-4 py-2 text-md font-medium text-white hover:bg-black/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75">
-            Увійти
+            {t("authButtonText")}
             <ChevronDown
               className="-mr-1 ml-2 h-5 w-5 text-violet-200 hover:text-violet-100"
               aria-hidden="true"
@@ -37,18 +40,8 @@ export default function AuthDropdown() {
                       active ? "bg-brandOrange text-white" : "text-gray-900"
                     } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                   >
-                    {active ? (
-                      <LogIn className="mr-2 h-5 w-5" aria-hidden="true" />
-                    ) : (
-                      <LogIn
-                        className="mr-2 h-5 w-5"
-                        aria-hidden="true"
-                        // fill="#EDE9FE"
-                        // stroke="#A78BFA"
-                        // strokeWidth="2"
-                      />
-                    )}
-                    Авторизація
+                    <LogIn className="mr-2 h-5 w-5" aria-hidden="true" />
+                    {t("signIn")}
                   </Link>
                 )}
               </Menu.Item>
@@ -62,12 +55,8 @@ export default function AuthDropdown() {
                       active ? "bg-brandOrange text-white" : "text-gray-900"
                     } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                   >
-                    {active ? (
-                      <UserPlus className="mr-2 h-5 w-5" aria-hidden="true" />
-                    ) : (
-                      <UserPlus className="mr-2 h-5 w-5" aria-hidden="true" />
-                    )}
-                    Реєстрація
+                    <UserPlus className="mr-2 h-5 w-5" aria-hidden="true" />
+                    {t("signUp")}
                   </Link>
                 )}
               </Menu.Item>

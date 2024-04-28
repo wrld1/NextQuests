@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Raleway } from "next/font/google";
-import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import "../globals.css";
 import { Toaster } from "react-hot-toast";
+import { i18nConfig } from "@/i18nConfig";
+import { dir } from "i18next";
 
 const raleway = Raleway({ subsets: ["cyrillic"] });
 
@@ -15,15 +15,21 @@ export const metadata: Metadata = {
   },
 };
 
+export function generateStaticParams() {
+  return i18nConfig.locales.map((locale) => ({ locale }));
+}
+
 export default function RootLayout({
   auth,
   children,
+  params: { locale },
 }: Readonly<{
   auth: React.ReactNode;
   children: React.ReactNode;
+  params: { locale: string };
 }>) {
   return (
-    <html lang="en">
+    <html lang={locale} dir={dir(locale)}>
       <body className={`relative ${raleway.className}`}>
         <div className="min-h-full flex flex-col bg-backgroundPrimary text-textWhite">
           <Toaster position="top-right" />
