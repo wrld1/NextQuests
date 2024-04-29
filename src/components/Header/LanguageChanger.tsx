@@ -42,11 +42,12 @@ export default function LanguageChanger() {
   return (
     <Listbox value={currentLocale} onChange={handleChange}>
       <div className="relative">
-        <Listbox.Button className="inline-flex gap-4 w-16 items-center justify-start rounded-md bg-gray-300/20 px-4 py-2 text-md font-medium text-white hover:bg-black/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75">
+        <Listbox.Button className="inline-flex items-center justify-start rounded-md bg-gray-300/20 px-4 py-2 text-md font-medium text-white hover:bg-black/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75">
           <span className="block truncate">{currentLocale}</span>
-          <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
+          {/* <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2"> */}
+          <span className="pointer-events-none flex items-center">
             <ChevronDown
-              className="-mr-1 ml-2 h-5 w-5 text-violet-200 hover:text-violet-100"
+              className="h-5 w-5 ml-2 text-violet-200 hover:text-violet-100"
               aria-hidden="true"
             />
           </span>
@@ -79,7 +80,7 @@ export default function LanguageChanger() {
                       }`}
                     >
                       {lang}
-                      {selected && <Check />}
+                      {selected && <Check className="h-5 w-5" />}
                     </span>
                   </>
                 )}

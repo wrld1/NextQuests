@@ -1,14 +1,23 @@
 import { navLinks } from "@/constants/navLinks";
 import React from "react";
 import HeaderLink from "./HeaderLink";
+import initTranslations from "@/app/i18n";
 
-function HeaderLinksList() {
+type HeaderLinksListProps = {
+  locale: string;
+};
+
+async function HeaderLinksList({ locale }: HeaderLinksListProps) {
+  const { t } = await initTranslations(locale, ["navbar"]);
+
   return (
     <nav>
       <ul className="flex gap-12">
-        {navLinks.map((navlink) => (
-          <li key={navlink.label}>
-            <HeaderLink linkName={navlink.href}>{navlink.label}</HeaderLink>
+        {navLinks.map(({ translateKey }) => (
+          <li key={translateKey}>
+            <HeaderLink linkName={translateKey}>
+              {t(`${translateKey}`)}
+            </HeaderLink>
           </li>
         ))}
       </ul>
