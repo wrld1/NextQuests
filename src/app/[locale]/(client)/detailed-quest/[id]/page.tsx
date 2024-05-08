@@ -1,7 +1,7 @@
 import QuestInfo from "../_components/QuestInfo";
 import { Metadata } from "next";
 import { getQuestById } from "@/actions/getQuestById";
-import { getQuests } from "@/actions/getQuests";
+// import { getQuests } from "@/actions/getQuests";
 import { Quest } from "@/types/Quest";
 import { notFound } from "next/navigation";
 import Link from "next/link";
@@ -24,10 +24,10 @@ export async function generateMetadata({
   };
 }
 
-export async function generateStaticParams() {
-  const data: Quest[] = await getQuests();
-  return data.map((quest) => ({ id: `${quest.id} ` }));
-}
+// export async function generateStaticParams() {
+//   const data: Quest[] = await getQuests();
+//   return data.map((quest) => ({ id: `${quest.id} ` }));
+// }
 
 export default async function DetailedQuestPage({
   params: { id },
