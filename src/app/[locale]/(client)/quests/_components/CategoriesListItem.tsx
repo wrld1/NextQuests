@@ -12,7 +12,7 @@ type CategoriesListItemProps = {
 
 function CategoriesListItem({ label, type, icon }: CategoriesListItemProps) {
   const segment = useSelectedLayoutSegment();
-  const isActive = type === segment && segment !== null;
+  const isActive = (type === segment && segment !== null) || segment === null;
 
   return (
     <li className="last:border-r-0 border-r-[1px] border-[##FFFFFF52] ">
