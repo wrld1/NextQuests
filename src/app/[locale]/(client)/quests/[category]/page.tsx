@@ -4,9 +4,9 @@ import QuestCardList from "../_components/QuestCardList";
 import { notFound } from "next/navigation";
 import SkeletonList from "../_components/SkeletonList";
 
-// export async function generateStaticParams() {
-//   return categories.map((category) => ({ category: category.type }));
-// }
+export async function generateStaticParams() {
+  return categories.map((category) => ({ category: category.type }));
+}
 
 export default async function CategoryQuestsPage({
   params,

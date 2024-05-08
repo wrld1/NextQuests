@@ -7,15 +7,15 @@ type QuestCardListProps = {
 };
 
 async function QuestCardList({ category }: QuestCardListProps) {
-  // const quests: Quest[] = await getQuests();
+  const quests: Quest[] = await getQuests();
 
-  // const filteredQuests = category
-  //   ? quests.filter((quest) => quest.type === category)
-  //   : quests;
+  const filteredQuests = category
+    ? quests.filter((quest) => quest.type === category)
+    : quests;
 
   return (
     <div className="grid grid-cols-3 gap-x-6 gap-y-8 mt-10 mx-auto">
-      {/* {filteredQuests.map((quest) => (
+      {filteredQuests.map((quest) => (
         <QuestCard
           key={quest.id}
           id={quest.id}
@@ -24,7 +24,7 @@ async function QuestCardList({ category }: QuestCardListProps) {
           level={quest.level}
           peopleCount={quest.peopleCount}
         />
-      ))} */}
+      ))}
     </div>
   );
 }
