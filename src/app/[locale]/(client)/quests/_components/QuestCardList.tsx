@@ -6,11 +6,11 @@ type QuestCardListProps = {
   category?: string;
 };
 
-async function QuestCardList({ category }: QuestCardListProps) {
+async function QuestCardList({ category = "all" }: QuestCardListProps) {
   const quests: Quest[] = await getQuests();
 
   const filteredQuests =
-    category !== "all" && category !== ""
+    category !== "all"
       ? quests.filter((quest) => quest.type === category)
       : quests;
 
