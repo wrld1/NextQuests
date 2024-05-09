@@ -23,11 +23,11 @@ export default function RootLayout({
   auth,
   children,
   params: { locale },
-}: Readonly<{
+}: {
   auth: React.ReactNode;
   children: React.ReactNode;
   params: { locale: string };
-}>) {
+}) {
   return (
     <html lang={locale} dir={dir(locale)}>
       <body className={`relative ${raleway.className}`}>
