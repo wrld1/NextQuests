@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useSelectedLayoutSegment } from "next/navigation";
+import React from "react";
 
 function HeaderLink({
   linkName,

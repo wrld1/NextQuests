@@ -4,6 +4,9 @@ import "../globals.css";
 import { Toaster } from "react-hot-toast";
 import { i18nConfig } from "@/i18nConfig";
 import { dir } from "i18next";
+import React from "react";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const raleway = Raleway({ subsets: ["cyrillic"] });
 
@@ -32,9 +35,13 @@ export default function RootLayout({
     <html lang={locale} dir={dir(locale)}>
       <body className={`relative ${raleway.className}`}>
         <div className="min-h-full flex flex-col bg-backgroundPrimary text-textWhite">
-          <Toaster position="top-right" />
-          {auth}
-          {children}
+          <Header locale={locale} />
+          <main className="flex-auto">
+            <Toaster position="top-right" />
+            {auth}
+            {children}
+          </main>
+          <Footer />
         </div>
       </body>
     </html>

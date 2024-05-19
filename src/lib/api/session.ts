@@ -20,8 +20,8 @@ export async function decrypt(session: string | undefined = ""): Promise<any> {
       algorithms: ["HS256"],
     });
     return payload;
-  } catch (error) {
-    console.log("Failed to verify session");
+  } catch (error:any) {
+    return error.message;
   }
 }
 
@@ -32,7 +32,7 @@ export async function verifySession() {
 }
 
 export async function createSession(userId: string) {
-  const expiresAt = new Date(Date.now() + 1 * 24 * 60 * 60 * 1000);
+  const expiresAt = new Date(Date.now() +  24 * 60 * 60 * 1000);
   const session = await encrypt({ userId, expiresAt });
 
   cookies().set("session", session, {
@@ -52,7 +52,7 @@ export async function updateSession(request: NextRequest) {
 
   const currentTime = Date.now();
   if (payload.expires <= currentTime) {
-    payload.expires = new Date(currentTime + 1 * 24 * 60 * 60 * 1000);
+    payload.expires = new Date(currentTime + 24 * 60 * 60 * 1000);
     const res = NextResponse.next();
     res.cookies.set({
       name: "session",

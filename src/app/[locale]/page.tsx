@@ -18,10 +18,12 @@ export default async function Home({
           <p className="text-xl text-center text=[#707C87]">
             {t("subheading")}
           </p>
-          <Link href="/quests" className="bg-brandOrange p-2 text-center">
+          <Link
+            href="/quests"
+            className="bg-brandOrange rounded-md p-2 text-center"
+          >
             {t("actionButtonText")}
           </Link>
-          <pre>{JSON.stringify(session, null, 2)}</pre>
         </div>
       </section>
     </>

@@ -10,7 +10,7 @@ const imageNames = [
   "cover-old-house",
   "cover-ritual",
   "cover-sklep",
-]; //mozhno bilo bez hardcoda no tak bilo bistree)
+];
 
 export function getRandomImagePath() {
   const randomIndex = Math.floor(Math.random() * imageNames.length);
