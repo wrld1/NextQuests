@@ -12,7 +12,7 @@ async function HeaderLinksList({ locale }: HeaderLinksListProps) {
 
   return (
     <nav>
-      <ul className="flex gap-12">
+      <ul className="flex gap-6 xl:gap-12">
         {navLinks.map(({ translateKey }) => (
           <li key={translateKey}>
             <HeaderLink linkName={translateKey}>

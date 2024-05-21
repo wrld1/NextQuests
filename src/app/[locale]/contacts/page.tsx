@@ -1,7 +1,8 @@
 import Link from "next/link";
 import AddressInfoItem from "./_components/AddressInfoItem";
 import MapWindow from "./_components/MapWindow";
-import { getRandomImagePath } from "@/lib/getRandomImageNames";
+import { getRandomImagePath } from "@/lib/utils/getRandomImageNames";
+import React from "react";
 
 export default async function ContactsPage() {
   const imagePath = getRandomImagePath();
@@ -28,7 +29,12 @@ export default async function ContactsPage() {
                 <span>Щодня з 9 до 22</span>
               </AddressInfoItem>
               <AddressInfoItem label="Телефон">
-                <Link href="tel:099-366-38-98">099-366-38-98</Link>
+                <Link
+                  href="tel:099-145-02-67"
+                  className="font-semibold text-sm text-textWhite"
+                >
+                  099-145-02-67
+                </Link>
               </AddressInfoItem>
               <AddressInfoItem label="Email">
                 <Link href="mailto:info@escape-room.ua">

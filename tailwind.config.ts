@@ -38,6 +38,9 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    container: {
+      center: true,
+    },
     colors: {
       ...colors,
       brandOrange: "#F2890F",

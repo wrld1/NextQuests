@@ -27,8 +27,8 @@ async function Header({ locale }: HeaderProps) {
       locale={locale}
       resources={resources}
     >
-      <header className="pt-6 flex bg-transparent absolute w-full z-20">
-        <div className="container justify-between mx-auto flex items-center gap-3">
+      <header className="pt-6 flex bg-transparent absolute z-20 w-full mx-auto">
+        <div className="container justify-between mx-auto flex items-center gap-3 w-full">
           <div>
             <Link href="/">
               <Image
@@ -41,13 +41,7 @@ async function Header({ locale }: HeaderProps) {
             </Link>
           </div>
           <HeaderLinksList locale={locale} />
-          <div className="flex items-center gap-8">
-            <Link
-              href="tel:099-145-02-67"
-              className="font-semibold text-sm text-textWhite"
-            >
-              099-145-02-67
-            </Link>
+          <div className="flex items-center gap-3 xl:gap-8 flex-wrap justify-center">
             {!session ? <AuthDropdown /> : <LogoutButton />}
             <LanguageChanger />
           </div>

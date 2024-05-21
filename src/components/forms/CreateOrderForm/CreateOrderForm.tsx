@@ -3,11 +3,11 @@
 import { useFormState } from "react-dom";
 import { createOrder } from "@/actions/createOrder";
 import { useState } from "react";
-import { findErrors } from "@/lib/findErrors";
+import { findErrors } from "@/lib/utils/findErrors";
 import ErrorMessages from "@/components/ui/ErrorMessages";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
-import { handleFormError } from "@/lib/handleFormError";
+import { handleFormError } from "@/lib/utils/handleFormError";
 import { formInitialState } from "@/constants/formInitialState";
 import SubmitButton from "@/components/ui/SubmitButton";
 import FormInput from "@/components/ui/FormInput";
