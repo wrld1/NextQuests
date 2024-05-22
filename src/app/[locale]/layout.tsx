@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: "Escape Room",
   description: "Квести під будь який смак",
   icons: {
-    icon: "../favicon.ico",
+    icon: "./favicon.ico",
   },
 };
 
