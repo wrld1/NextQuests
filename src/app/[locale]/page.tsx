@@ -15,7 +15,7 @@ export default async function Home({
       <section className="flex container mx-auto gap-12 py-[120px] justify-center h-screen">
         <div className="flex flex-col gap-7 items-center w-full h-full">
           <h2 className="font-bold text-4xl text-textWhite">{t("heading")}</h2>
-          <p className="text-xl text-center text=[#707C87]">
+          <p className="text-xl text-center text=[#707C87] text-balance">
             {t("subheading")}
           </p>
           <Link
